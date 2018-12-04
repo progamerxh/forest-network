@@ -1,0 +1,596 @@
+.App {
+  text-align: center;
+  color: white;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  font-size: 14px;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* Custom scrollbar */
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: null; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #008B7D; 
+  border-radius: 8px;
+}
+/* Handle on hover */
+::-webkit-scrollbar:hover{
+  width: 10px;
+}
+.clear-fix{
+  background-color: #3D4047;
+  min-height: 1px;
+  height: 1px;
+}
+.signin{
+  background: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/rbGMAGytlGjahhgrii/videoblocks-global-network-in-digital-cyberspace-financial-or-social-background-animation-4k-loopable-3d-rendering-suitable-for-cryptocurrency-blockchain-social-background_rqvlwmzlm_thumbnail-full01.png") center no-repeat;
+  background-size: cover;  
+  flex: 1;
+  text-align: left;
+  padding: 100px 100px;
+}
+.signin h2{
+  font-size: 60px;
+  font-weight: 400;
+}
+.signin h1{
+  font-size: 72px;
+  font-weight: 400;
+}
+.signin span{
+  color: #008B7D;
+}
+.signin .interaction{
+  margin: 12px 0px;
+}
+.signin .interaction .register{
+  cursor: pointer;
+  color: #fff;
+  background: #008B7D;
+  border-radius: 50px;
+  padding: 6px 20px;
+  margin-right: 20px;
+}
+.signin .interaction .register:hover{
+  background: #61dafb;
+}
+.signin .interaction .login{
+  cursor: pointer;
+  color: #585D61;
+  border: 1px solid #585D61;
+  border-radius: 50px;
+  padding: 6px 20px;
+}
+.signin .interaction .login:hover{
+  color: #008B7D;
+  border: 1px solid #008B7D;
+}
+.left-panel{
+  background-color: #232429;
+  height: 100vh;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.left-panel .user{
+  flex: 3;
+  padding: 12px;
+}
+.left-panel .user .avatar:hover{
+  border: 2px solid #008B7D;
+}
+.user .avatar{
+  cursor: pointer;
+  margin: 15px auto;
+  border: 2px solid #585D61;
+  height: 70px;
+  width: 70px;
+  border-radius: 100%;
+}
+.user .name{
+  margin: 0px auto;
+}
+.user .name .fa{
+  margin: 0 6px;
+  display: none;
+  cursor: pointer;
+}
+.user .name .fa:hover{
+  color: #008B7D;
+}
+.user .name:hover .fa{
+  display: unset;
+}
+.left-panel .userprofile{
+  flex: 12;
+}
+.userprofile .userstat{
+  padding: 6px;
+}
+.userprofile .hover{
+  width: 100%;
+
+}
+.userstat .fa{
+  width: 35px;
+}
+.left-panel .search{
+  background-color: #2E3339;
+  border-radius: 50px;
+  margin: 15px;
+  height: 2.5em;
+}
+#searchicon{
+  font-size: 18px;
+  color: #585D61;
+  cursor: pointer;
+}
+.search form{
+  padding: 4px;
+  height: 2.5em;
+}
+
+.search .searchtext{
+  background: #2E3339;
+  font-size: 14px;
+  width: 75%;
+  height: 2em;
+  flex: 5 1;
+  border: none;
+  color: #fff;
+  margin: 0;
+}
+.left-panel .searchtext:focus{
+  border-bottom: none !important;
+  box-shadow: none!important;
+}
+.left-panel .homesidebar{
+  flex: 12;
+  display: flex;
+  flex-direction: column;
+}
+.homesidebar  .content{
+  overflow-y: scroll;
+}
+
+.userlist .item{
+  cursor: pointer;
+  position: relative;
+  min-width: 0;
+  display: flex;
+  padding: 12px;
+}
+.item:hover{
+  background-color: #2E3339;
+}
+.userlist .avt{
+  border-radius: 100%;
+  align-items: center;
+  margin: 0px 12px;
+  border: 2px solid #585D61;
+  border-radius: 100%;
+  height: 70px;
+  width: 70px;
+  left: 6px;
+  bottom: 6px;
+}
+.userlist .content{
+  min-width: 0;
+  width: 100%;
+  text-align: left;
+  text-overflow: ellipsis;
+  position: relative;
+  overflow-y: unset;
+}
+.userlist .name{
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: white;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.4;
+  flex :1;
+}
+
+.userlist .followcount{
+  min-width: 0;
+  overflow: hidden;
+  color: #585D61;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.userlist .lastmessage{
+  width: 80%;
+}
+.userlist .follow{
+  color: #585D61;
+  font-size: 12px;
+  border: 1px solid #585D61;
+  width: fit-content;
+  padding: 2px 12px;
+  margin: 4px 0;
+  border-radius: 6px;
+}
+.userlist .followed{
+  color: #15161A;
+  font-size: 12px;
+  border: 1px solid #008B7D;
+  background-color: #008B7D;
+  width: fit-content;
+  padding: 2px 12px;
+  margin: 4px 0;
+  border-radius: 6px;
+}
+.userlist .fa{
+  margin-right: 6px;
+}
+.userlist .follow:hover{
+  color: #008B7D;
+  border: 1px solid #008B7D;
+}
+.status{
+  position: absolute;
+  font-size: 12px;
+  right: 0;
+}
+.status .fa{
+  margin-right: 5px;
+}
+
+.right-panel{
+  height: 100vh;
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+}
+.top{
+  height: 55px;
+  background-color: #15161A;
+}
+.top .navitems{
+  display: flex;
+  flex-direction: row;
+  float: left;
+  height: 70%;
+  padding: 12px;
+  margin: 6px 0;
+}
+.navitems li a{
+  margin: auto 12px;
+  cursor: pointer;
+  color: #585D61;
+}
+.navitems .active{
+  color: #008B7D; 
+}
+.navitems li a:hover{
+  color: #008B7D;
+  text-decoration: none;
+}
+.top .search{
+  float: right;
+  width: 40%;
+  padding: 8px;
+}
+.top .search form{
+  display: flex;
+}
+.top .search .searchtext{
+  width: 70%;
+  background-color: unset;
+  border: 1px solid #3D4047;
+  border-radius: 50px;
+  padding: 0px 1em;
+}
+.top .search .searchtext:focus{
+  border: 1px solid #008B7D;
+  box-shadow: none!important;
+}
+.top #searchicon{
+  height: 30px;
+  width: 30px;
+  margin: 0 10px;
+  color: white;
+  background-color: #008B7D;
+  border: 1px solid #008B7D;
+  border-radius: 100%;
+}
+.main-section{
+  flex: 10;
+  display: flex;
+  flex-direction: row;
+}
+.mid{
+  background-color: #191A1E;
+  flex: 3;
+  overflow-y: scroll;
+}
+.newsfeed .item, .upload {
+  display: flex;
+  flex-direction: row;
+}
+.upload  input[type="file" ]{
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
+  width: 1px;
+  height: 1px;
+}
+[contenteditable=true]:empty:before {
+   content: attr(placeholder);
+    display: block; 
+    color: #585D61; 
+}
+.newsfeed .item:hover{
+  background-color:unset;
+}
+.newsfeed .user, .upload .user{
+  padding: 20px 20px;
+  flex: 2;
+  min-height: 100px;
+  text-align: left;
+  color: #585D61;
+}
+.newsfeed span{
+  color: #fff;
+}
+.newsfeed .fa, .upload .fa{
+  margin-right: 6px;
+}
+.newsfeed .user .avt, .upload .user .avt{
+  border-radius: 100%;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  margin-bottom: 6px;
+}
+.newsfeed .user .name{
+  color: #008B7D;
+}
+.newsfeed .user .timeuploaded{
+ margin: 10px 0;
+}
+.newsfeed .content, .upload .content{
+  flex: 7;
+  padding: 20px 20px 20px 10px;
+  text-align: left;
+}
+
+.newsfeed .photo, .upload .photo{
+  cursor: pointer;
+  flex: 0 0 auto;
+  max-width: 100%;
+  max-height: 100%;
+  align-self: center;
+  -webkit-align-self: center;
+  margin: 20px 0 6px 0;
+  object-fit: scale-down;
+  border-radius: 6px;
+}
+.newsfeed .taglist{
+  overflow: hidden;
+  margin-top: 6px;
+}
+.newsfeed .taglist span:hover{
+  cursor: pointer;
+  color: #fff;
+}
+.interaction a{
+  display: inline;
+  cursor: pointer;
+  margin: 0 6px;
+  padding: 6px 12px;
+}
+.interaction{
+  display: flex;
+  flex-direction: row;
+  margin-top: 6px;
+  padding: 5px;
+  min-height: 40px;
+  color: #585D61;
+}
+.interaction .fa{
+  width: 26px;
+  color: #008B7D;
+}
+.interaction a:hover .fa{
+  font-size: 24px;
+  vertical-align: -4px;
+  color: #fff;
+}
+.interaction .hover a:hover{
+  background-color: #008B7D;
+  border-radius: 6px;
+  color: #fff;
+}
+
+.interaction .faves{
+
+}
+.interaction .comments{
+ 
+}
+.upload .content .text{
+  padding: 6px;
+  border: none;
+  min-height: 55px;
+  flex: 0 0 auto;
+  width: 42vw;
+  margin: 0;
+  overflow: hidden;
+  white-space: pre-wrap;
+  border: 1px solid #585D61;
+  border-radius: 6px;
+}
+.upload .content .text:focus{
+  outline: none;
+  border: 1px solid #008B7D;
+}
+
+.upload .uploadphoto label{
+  font-size: 14px;
+  color: #585D61;
+  cursor: pointer;
+  min-height: 24px;
+}
+.upload .uploadphoto label:hover{
+ color: #fff;
+}
+.previewimage img{
+  border: 1px solid #585D61;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 100px;
+  width: 100px;
+}
+.previewimage img, .previewimage .fa {
+  cursor: pointer;
+}
+.previewimage .fa:hover{
+  color: #008B7D;
+}
+.addtag .taglabel{
+  min-width: 35px;
+  color: #008B7D;
+}
+.addtag td{
+  padding-bottom: 0px;
+}
+.addtag input{
+  border-bottom:  1px solid #585D61;
+  margin: 0;
+}
+::placeholder { 
+  color: #585D61;
+  font-size: 14px;
+}
+.addtag input:focus{
+  border-bottom: 1px solid #008B7D !important;
+}
+.addtag .tagitem, .taglist .tagitem{
+  background-color: #008B7D;
+  border-radius: 4px;
+  margin: 2px 2px;
+  height: 1.5em;
+  padding: 0px 4px;
+  color: #232429;
+  float: left;
+} 
+.tagitem .fa{
+  margin-left: 6px;
+  margin-right: 2px;
+  cursor: pointer;
+  color: #232429;
+}
+.tagitem .fa:hover{
+  color: #fff;
+}
+
+.upload .post{
+  text-align: center;
+  padding: 4px;
+  color: #008B7D;
+  cursor: pointer;
+  height: 30px;
+}
+.upload .post:hover{
+  border: 1px solid #008B7D;
+  border-radius: 6px;
+  background-color: #008B7D;
+  color: #fff;
+}
+.right{
+  background-color: #232429;
+  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.right .trendingtag{
+  padding: 6px;
+  color: #585D61;
+}
+.taglist .item{
+  padding: 6px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+}
+.taglist .item .tagtext{
+  color: #008B7D;
+  text-align: right;
+  padding: 0px 12px;
+}
+.taglist .item .count{
+  text-align: left;
+  padding: 0px 12px;
+}
+.taglist .item .tagtext,.taglist .item .count{
+  flex:1;
+}
+.right .followtype{
+  display: flex;
+  flex-direction: row;
+  min-height: 25px;
+  margin: 6px auto;
+  color: #585D61;
+}
+.right .item .active{
+  color: #008B7D;
+}
+.followtype .item{
+  flex: 1;
+  cursor: pointer;
+}
+.followtype .item:hover{
+  color: #008B7D;
+  background-color: unset;
+}
+
+.right .followlist{
+  flex: 1;
+  overflow-y: scroll;
+}
+
+
