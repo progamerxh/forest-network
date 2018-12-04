@@ -15,21 +15,21 @@ function SignIn(props) {
                 avatarUrl: "http://droidlessons.com/wp-content/uploads/2016/11/Cogn_mode.png",
                 displayName: "User 1",
                 followers: "112",
-                isFlollow: true,
+                isFollow: true,
             },
             {
                 uid :"u2",
                 avatarUrl: "http://droidlessons.com/wp-content/uploads/2016/11/Cogn_mode.png",
                 displayName: "User 2",
                 followers: "13",
-                isFlollow: false,
+                isFollow: false,
             },
             {
                 uid :"u3",
                 avatarUrl: "http://droidlessons.com/wp-content/uploads/2016/11/Cogn_mode.png",
                 displayName: "User 3",
                 followers: "14",
-                isFlollow: true,
+                isFollow: false,
             },
         ],
         following: [
@@ -38,25 +38,6 @@ function SignIn(props) {
                 avatarUrl: "http://droidlessons.com/wp-content/uploads/2016/11/Cogn_mode.png",
                 displayName: "User 1",
                 followers: "112",
-                
-            },
-            {
-                uid :"u2",
-                avatarUrl: "http://droidlessons.com/wp-content/uploads/2016/11/Cogn_mode.png",
-                displayName: "User 2",
-                followers: "13",
-            },
-            {
-                uid :"u4",
-                avatarUrl: "http://droidlessons.com/wp-content/uploads/2016/11/Cogn_mode.png",
-                displayName: "User 4",
-                followers: "122",
-            },
-            {
-                uid :"u5",
-                avatarUrl: "http://droidlessons.com/wp-content/uploads/2016/11/Cogn_mode.png",
-                displayName: "User 5",
-                followers: "54",
             },
             {
                 uid :"u7",

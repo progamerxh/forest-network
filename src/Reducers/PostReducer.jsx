@@ -2,6 +2,7 @@ import * as types from '../Actions/PostActionType'
 
 const mockposts = [
     {
+        postid: "p2",
         avatarUrl: "http://droidlessons.com/wp-content/uploads/2016/11/Cogn_mode.png",
         displayName: "User 1",
         followers: "112",
@@ -20,6 +21,7 @@ const mockposts = [
         }
     },
     {
+        postid: "p1",
         avatarUrl: "http://droidlessons.com/wp-content/uploads/2016/11/Cogn_mode.png",
         displayName: "User 7",
         followers: "42",
@@ -44,8 +46,12 @@ export const posts = (state = mockposts, action) => {
         case types.POST_SUBMITED:
             return [action.post,
             ...state
-
             ];
+        case types.POST_SHOWCOMMENT:
+            for (var i in state)
+                if (state[i].postid === action.postid)
+                    state[i].showComment = true;
+            return state;
         default:
             return state;
     }

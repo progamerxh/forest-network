@@ -11,6 +11,23 @@ export const auth = (state = '', action) => {
                 ...state,
                 displayName: action.text,
             }
+        case types.FOLLOW:
+            var following = state.following;
+            var followers = state.followers;
+            following.push({
+                uid: action.user.uid,
+                avatarUrl: action.user.avatarUrl,
+                displayName: action.user.displayName,
+                followers: action.user.followers,
+            })
+            for (var i in followers)
+                if (followers[i].uid === action.user.uid)
+                    followers[i].isFollow = true;
+            return {
+                ...state,
+                following,
+                followers,
+            }
         default:
             return state;
     }

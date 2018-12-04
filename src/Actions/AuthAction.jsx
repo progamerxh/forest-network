@@ -18,3 +18,9 @@ export const editName = (text) => {
         text
     }
 };
+export const follow = (user) => {
+    return {
+        type: types.FOLLOW,
+        user
+    }
+};

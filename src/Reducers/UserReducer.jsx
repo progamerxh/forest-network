@@ -51,7 +51,7 @@ export const userlist = (state = mockusers, action) => {
             return state;
     }
 };
-export const followtype = (state = 'Follower', action) => {
+export const followtype = (state = 'Followers', action) => {
     switch (action.type) {
         case types.FOLLOW_TYPE:
             return action.followtype;

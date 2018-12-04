@@ -72,8 +72,10 @@ class UploadForm extends Component {
         if (this.state.text.trim() === "" && this.state.file === null)
             return;
         const post = {
+            uid: "uincognito",
             avatarUrl: this.props.auth.avatarUrl,
             displayName: this.props.auth.displayName,
+            followers: this.props.auth.followers.length,
             content: {
                 text: this.state.text,
                 photoUrl: "",
@@ -119,6 +121,15 @@ class UploadForm extends Component {
                     html={this.state.html}
                     onChange={this.textHandleChange}  >
                 </ContentEditable>
+                {(this.state.previewImgUrl) ? (
+                    <div className="previewimage">
+                        <img className="photo" src={this.state.previewImgUrl} />
+                        <i className="fa fa-times"
+                            onClick={this.removeFileHandler}
+                        ></i>
+                    </div>
+                ) : null
+                }
                 {(this.state.isShowTag || this.state.taglist.length > 0) ? (
                     <div className="addtag" >
                         <table >
@@ -157,16 +168,6 @@ class UploadForm extends Component {
                         </table>
                     </div>
                 ) : (null)
-                }
-
-                {(this.state.previewImgUrl) ? (
-                    <div className="previewimage">
-                        <img className="photo" src={this.state.previewImgUrl} />
-                        <i className="fa fa-times"
-                            onClick={this.removeFileHandler}
-                        ></i>
-                    </div>
-                ) : null
                 }
                 <div className="interaction">
                     <div className="hover uploadphoto">

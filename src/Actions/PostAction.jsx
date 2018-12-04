@@ -6,3 +6,15 @@ export const submitPost = (post) => {
       post
   }
 };
+export const interact = (interact) => {
+  return {
+      type: types.POST_INTERACT,
+      interact
+  }
+};
+export const showcomment = (postid) => {
+  return {
+      type: types.POST_SHOWCOMMENT,
+      postid,
+  }
+};
