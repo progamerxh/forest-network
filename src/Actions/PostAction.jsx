@@ -1,5 +1,16 @@
 import * as types from './PostActionType';
 
+export const refreshposts = () => {
+  return {
+      type: types.POST_REFRESH,
+  }
+};
+export const loadposts = (posts) => {
+  return {
+      type: types.POST_LOADED,
+      posts,
+  }
+};
 export const submitPost = (post) => {
   return {
       type: types.POST_SUBMITED,
@@ -12,9 +23,15 @@ export const interact = (interact) => {
       interact
   }
 };
-export const showcomment = (postid) => {
+export const showcomment = (hash) => {
   return {
       type: types.POST_SHOWCOMMENT,
-      postid,
+      hash,
+  }
+};
+export const showreact = (hash) => {
+  return {
+      type: types.POST_SHOWREACT,
+      hash,
   }
 };

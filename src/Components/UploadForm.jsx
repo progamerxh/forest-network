@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { submitPost } from '../Actions/PostAction'
+import { submitPost, loadposts } from '../Actions/PostAction'
 import ReactDOM from 'react-dom';
+import { PlainTextContent, UpdateAccountParams } from '../lib/tx/v1'
+import { defaultavt, calculateBandwidth, base64Img } from '../lib/Helper';
+import { sign, encode } from '../lib/tx/index'
+import { broadcastTx } from '../Actions/ApiAction';
+const vstruct = require('varstruct');
+
 class ContentEditable extends Component {
     constructor(props) {
         super(props);
@@ -52,6 +58,17 @@ class UploadForm extends Component {
         const reader = new FileReader();
         const url = reader.readAsDataURL(file);
         reader.onloadend = e => callback(reader.result);
+
+        const readerbinary = new FileReader();
+        readerbinary.readAsArrayBuffer(file);
+        readerbinary.onloadend = e => {
+
+            const updatepicture = {
+                key: "picture",
+                value: Buffer.from(new Uint8Array(readerbinary.result)),
+            }
+            console.log(UpdateAccountParams.encode(updatepicture));
+        };
     }
 
     fileChangedHandler = (event) => {
@@ -69,27 +86,17 @@ class UploadForm extends Component {
         this.setState({ taglist, tagtext: '' });
     }
     submitPostHandler() {
-        if (this.state.text.trim() === "" && this.state.file === null)
-            return;
-        const post = {
-            uid: "uincognito",
-            avatarUrl: this.props.auth.avatarUrl,
-            displayName: this.props.auth.displayName,
-            followers: this.props.auth.followers.length,
-            content: {
-                text: this.state.text,
-                photoUrl: "",
-                taglist: this.state.taglist,
-                timeuploaded: new Date(),
-            },
-            interaction: {
-                faves: null,
-                comments: null,
-                shares: null,
-            }
-        };
-        this.props.dispatch(submitPost(post));
-        this.setState({ file: null, previewImgUrl: null, text: '', tagtext: '', taglist: [] });
+        if (this.state.text.trim() !== "" | this.state.file === null) {
+            const params = {
+                keys: [],
+                content: PlainTextContent.encode({
+                    type: 1,
+                    text: this.state.text,
+                }),
+            };
+            this.props.dispatch(broadcastTx({params,operation: "post"}));
+        }
+        this.setState({ file: null, previewImgUrl: null, text: '', html: '', tagtext: '', taglist: [] });
     }
     textHandleChange(e) {
         this.setState({ text: e.target.value });
@@ -106,13 +113,16 @@ class UploadForm extends Component {
         this.setState({ taglist });
     }
     render() {
-        return <div className="mid upload">
+        var avatar = (this.props.auth.picture) ? base64Img(this.props.auth.picture.data) :  defaultavt;
+        const { bandwidth, bandwidthTime, balance } = this.props.auth;
+        return <div className="mid upload"
+            style={this.props.style}>
             <div className="user">
-                <img className="avt" src={this.props.auth.avatarUrl} ></img>
+                <img className="avt" src={avatar} ></img>
                 <div className="infor">
                     <div className="coin">
-                        <i className="fa fa-gg-circle" ></i>
-                        {this.props.auth.coin}
+                        <i className="fa fa-battery-full" ></i>
+                        {calculateBandwidth(bandwidth, bandwidthTime, balance)}
                     </div>
                 </div>
             </div>

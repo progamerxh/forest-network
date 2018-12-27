@@ -62,11 +62,12 @@
   height: 1px;
 }
 .signin{
-  background: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/rbGMAGytlGjahhgrii/videoblocks-global-network-in-digital-cyberspace-financial-or-social-background-animation-4k-loopable-3d-rendering-suitable-for-cryptocurrency-blockchain-social-background_rqvlwmzlm_thumbnail-full01.png") center no-repeat;
-  background-size: cover;  
   flex: 1;
   text-align: left;
-  padding: 100px 100px;
+  margin: auto 100px;
+}
+.signin p{
+  white-space: pre-line;
 }
 .signin h2{
   font-size: 60px;
@@ -84,14 +85,14 @@
 }
 .signin .interaction .register{
   cursor: pointer;
-  color: #fff;
+  color: rgb(222,222,222);
   background: #008B7D;
   border-radius: 50px;
   padding: 6px 20px;
   margin-right: 20px;
 }
 .signin .interaction .register:hover{
-  background: #61dafb;
+  color: #232429;
 }
 .signin .interaction .login{
   cursor: pointer;
@@ -104,6 +105,40 @@
   color: #008B7D;
   border: 1px solid #008B7D;
 }
+.signin .loginform{
+  float: left;
+  width: 60%;
+}
+.loginform form{
+  display: flex;
+}
+.loginform .private{
+  width: 70%;
+  background-color: unset;
+  border: 1px solid #3D4047;
+  border-radius: 50px;
+  padding: 6px 1em;
+  height: 2em;
+}
+.loginform .private:focus{
+  border: 1px solid #008B7D;
+  box-shadow: none!important;
+}
+.loginform i{
+  cursor: pointer;
+  padding: 6px 10px;
+  height: 44px;
+  width: 44px;
+  font-size: 28px;
+  margin: 0 10px;
+  color: #008B7D;
+  border: 1px solid #008B7D;
+  border-radius: 100%;
+}
+.loginform i:hover{
+  background-color: #008B7D;
+  color: white;
+}
 .left-panel{
   background-color: #232429;
   height: 100vh;
@@ -115,43 +150,115 @@
   flex: 3;
   padding: 12px;
 }
-.left-panel .user .avatar:hover{
-  border: 2px solid #008B7D;
-}
-.user .avatar{
-  cursor: pointer;
-  margin: 15px auto;
+
+.useravatar{
   border: 2px solid #585D61;
+  height: 74px;
+  width: 74px;
+  margin: 15px auto;
+  border-radius: 100%;
+  cursor: pointer;
+}
+.useravatar img{
   height: 70px;
   width: 70px;
   border-radius: 100%;
+  object-fit: cover;
 }
-.user .name{
+.name, .account{
+  max-width: 120px;
+  width: fit-content;
+  margin-left: 0;
+  flex-grow: 1;
+  flex-basis: auto; /* default value */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.left-panel .user .name{
   margin: 0px auto;
+  max-width: 200px;
+}
+.left-panel .user:hover .name{
+  overflow-wrap: break-word;
+  white-space: unset;
+}
+.user .logout {
+  text-align: right;
+  float: left;
+}
+.user .logout .fa{
+  font-size: 18px;
+  margin: 0 6px;
+  cursor: pointer;
+  transform: rotate(180deg);
+}
+.user .logout .fa:hover{
+ color: #008B7D;
+}
+.user .useravatar .fa{
+  position: absolute;
+  top: 70px;
+  color: #585D61;
+  cursor: pointer;
+  font-size: 18px;
+}
+.user .useravatar{
+  cursor: unset;
+}
+.useravatar .fa-camera{
+  display: none;
+  left: 120px;
+}
+.useravatar .fa-check{
+  left: 70px;
+}
+.useravatar .fa-times{
+  left: 170px;
+}
+.useravatar:hover .fa{
+  display: unset;
+}
+.user .useravatar .fa:hover{
+  color: #008B7D;
 }
 .user .name .fa{
   margin: 0 6px;
-  display: none;
   cursor: pointer;
+  display: none;
 }
 .user .name .fa:hover{
   color: #008B7D;
 }
-.user .name:hover .fa{
+.user:hover .fa-edit{
   display: unset;
+}
+.user .submit{
+  margin: auto;
+}
+
+.user .follow:hover{
+  color: #008B7D;
+  border: 1px solid #008B7D;
 }
 .left-panel .userprofile{
   flex: 12;
 }
 .userprofile .userstat{
-  padding: 6px;
+  padding: 6px 20px;
+  text-align: left;
 }
 .userprofile .hover{
   width: 100%;
-
 }
 .userstat .fa{
-  width: 35px;
+  width: 30px;
+}
+.userstat label{
+  margin-left: 6px;
+}
+.userstat span{
+  float: right;
 }
 .left-panel .search{
   background-color: #2E3339;
@@ -176,7 +283,7 @@
   height: 2em;
   flex: 5 1;
   border: none;
-  color: #fff;
+  color: rgb(222,222,222);
   margin: 0;
 }
 .left-panel .searchtext:focus{
@@ -191,23 +298,31 @@
 .homesidebar  .content{
   overflow-y: scroll;
 }
-
+.item:hover{
+  background-color: #2E3339;
+}
 .userlist .item{
-  cursor: pointer;
   position: relative;
   min-width: 0;
   display: flex;
   padding: 12px;
 }
-.item:hover{
-  background-color: #2E3339;
+.userlist .item:hover{
+  background-color: #232429;
+}
+.userlist .useravatar{
+  min-width: 74px;
+  left: 6px;
+  bottom: 6px;
+  margin: 0px 12px;
+}
+.userlist .useravatar:hover{
+  border: 2px solid #008B7D;
 }
 .userlist .avt{
   border-radius: 100%;
   align-items: center;
-  margin: 0px 12px;
-  border: 2px solid #585D61;
-  border-radius: 100%;
+  min-width: 70px;
   height: 70px;
   width: 70px;
   left: 6px;
@@ -223,9 +338,6 @@
 }
 .userlist .name{
   min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
   color: white;
   font-size: 15px;
   font-weight: 400;
@@ -243,7 +355,7 @@
 .userlist .lastmessage{
   width: 80%;
 }
-.userlist .follow{
+.userlist .follow, .user .follow{
   color: #585D61;
   font-size: 12px;
   border: 1px solid #585D61;
@@ -251,8 +363,15 @@
   padding: 2px 12px;
   margin: 4px 0;
   border-radius: 6px;
+  cursor: pointer;
 }
-.userlist .followed{
+.user .follow{
+  margin: 6px auto;
+}
+.user  .fa{
+  margin-right: 6px;
+}
+.userlist .followed, .user .followed{
   color: #15161A;
   font-size: 12px;
   border: 1px solid #008B7D;
@@ -261,6 +380,13 @@
   padding: 2px 12px;
   margin: 4px 0;
   border-radius: 6px;
+  cursor: pointer;
+}
+.userlist .followed:hover, .user .followed:hover{
+  background-color: #585D61;
+}
+.user .followed{
+  margin: 6px auto;
 }
 .userlist .fa{
   margin-right: 6px;
@@ -346,11 +472,11 @@
   flex: 3;
   overflow-y: scroll;
 }
-.newsfeed .item, .upload {
+.newsfeed .item, .upload, .transaction {
   display: flex;
   flex-direction: row;
 }
-.upload  input[type="file" ]{
+input[type="file" ]{
   opacity: 0;
   position: absolute;
   pointer-events: none;
@@ -365,7 +491,7 @@
 .newsfeed .item:hover{
   background-color:unset;
 }
-.newsfeed .user, .upload .user{
+.mid .user{
   padding: 20px 20px;
   flex: 2;
   min-height: 100px;
@@ -373,12 +499,17 @@
   color: #585D61;
 }
 .newsfeed span{
-  color: #fff;
+  color: rgb(222,222,222);
 }
 .newsfeed .fa, .upload .fa{
   margin-right: 6px;
 }
-.newsfeed .user .avt, .upload .user .avt{
+.mid .useravatar{
+  margin: 0 0 6px 0;
+  height: 54px;
+  width: 54px;
+}
+.mid .user .avt{
   border-radius: 100%;
   height: 50px;
   width: 50px;
@@ -387,11 +518,16 @@
 }
 .newsfeed .user .name{
   color: #008B7D;
+  cursor: pointer;
+  max-width: 150px;
+}
+.newsfeed .user .name:hover{
+  text-decoration: underline;
 }
 .newsfeed .user .timeuploaded{
  margin: 10px 0;
 }
-.newsfeed .content, .upload .content{
+.mid .content{
   flex: 7;
   padding: 20px 20px 20px 10px;
   text-align: left;
@@ -405,7 +541,7 @@
   align-self: center;
   -webkit-align-self: center;
   margin: 20px 0 6px 0;
-  object-fit: scale-down;
+  object-fit: cover;
   border-radius: 6px;
 }
 .newsfeed .taglist{
@@ -414,42 +550,94 @@
 }
 .newsfeed .taglist span:hover{
   cursor: pointer;
-  color: #fff;
+  color: rgb(222,222,222);
 }
-.comment {
+.newsfeed .content .text{
+  word-wrap: break-word;
+  display: inline-block;
+  white-space: pre-line;
+  max-width: 42vw;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 30;
+
+}
+.newsfeed .content .text div{
+  white-space: pre-wrap!important;
+}
+.comment, .react {
   border-top: 1px solid #585D61;
   padding-left: 6px;
 }
 .comment .wrap{
   background-color: #232429;
-  padding: 4px;
   border-radius: 18px;
   padding: 8px 10px;
 }
-
-.comment li, .commentsubmit{
+.react .wrap{
+  background-color: #232429;
+  border-radius: 18px;
+  padding: 5px 10px;
+}
+.comment li, .commentsubmit, .react li{
   overflow: hidden;
   padding: 6px 4px;
   margin: 4px 0px;
 }
-.comment .avt{
+.comment .avt, .react .avt{
+  border-radius: 100%;
   height: 35px;
-  widows: 35px;
+  width: 35px;
   float: left;
+  object-fit: cover;
+  cursor: pointer;
 }
 
-.comment .content{
+.comment .content, .react .content{
   width: 100%;
   padding: 0px 0 0px 50px;
 }
-.comment .content .name{
+.comment .content .name, .react .content .name{
   color: #008B7D;
   margin-right: 6px;
+  display: block;
+  max-width: 500px;
+  height: 25px;
+}
+.comment .content .username, .react .content .username{
   cursor: pointer;
 }
-.comment .content .name:hover{
-  border-bottom: 1px solid #008B7D;
+.comment .content .username:hover, .react .content .username:hover{
+  cursor: pointer;
+  text-decoration: underline;
 }
+.comment .content a,.react .content a{
+  overflow: hidden;
+  display: inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: fit-content;
+  max-width: 250px;
+}
+
+.comment .content time{
+ font-size: 14px;
+ color: #585D61;
+ margin: 0 6px;
+}
+.react .content .reaction{
+  font-size: 14px;
+ color: #fff;
+ margin: 0 6px;
+}
+.react .content .reaction:hover{
+  color: #fff;
+}
+.comment .content time:hover{
+  border-bottom:unset;
+ }
 .commentsubmit form{
   padding: 0px 0 0px 50px;
 }
@@ -474,20 +662,14 @@
 .interaction a:hover .fa{
   font-size: 24px;
   vertical-align: -4px;
-  color: #fff;
+  color: rgb(222,222,222);
 }
 .interaction .hover a:hover{
   background-color: #008B7D;
   border-radius: 6px;
-  color: #fff;
+  color: rgb(222,222,222);
 }
 
-.interaction .faves{
-
-}
-.interaction .comments{
- 
-}
 .upload .content .text{
   padding: 6px;
   border: none;
@@ -512,7 +694,7 @@
   min-height: 24px;
 }
 .upload .uploadphoto label:hover{
- color: #fff;
+ color: rgb(222,222,222);
 }
 .previewimage img{
   border: 1px solid #585D61;
@@ -561,7 +743,7 @@
   color: #232429;
 }
 .tagitem .fa:hover{
-  color: #fff;
+  color: rgb(222,222,222);
 }
 
 .upload .post{
@@ -575,7 +757,7 @@
   border: 1px solid #008B7D;
   border-radius: 6px;
   background-color: #008B7D;
-  color: #fff;
+  color: rgb(222,222,222);
 }
 .right{
   background-color: #232429;
@@ -625,9 +807,65 @@
   background-color: unset;
 }
 
-.right .followlist{
+.right .content{
   flex: 1;
   overflow-y: scroll;
 }
 
-
+.wallet {
+  text-align: left;
+  padding: 16px;
+  font-size: 13px;
+}
+.wallet th{
+  padding: 6px;
+  color: rgb(222,222,222);
+}
+.wallet tr{
+  border-bottom: 1px solid #585D61;
+}
+.wallet .title{
+  font-weight: bold;
+  color: #008B7D;
+}
+.wallet .balance{
+  margin: 10px 0 60px 0;
+}
+.wallet .balance .send{
+  cursor: pointer;
+    color: white;
+    background: #008B7D;
+    border-radius: 50px;
+    padding: 6px 20px;
+    margin-right: 20px;
+    width: fit-content;
+    float: left;
+}
+.wallet .balance .cancel{
+  cursor: pointer;
+  color: #585D61;
+  border: 1px solid #585D61;
+  border-radius: 50px;
+  padding: 6px 20px;
+  width: fit-content;
+  float: left;
+  margin-right: 12px;
+}
+.wallet .balance .send:hover{
+  color:#232429;
+}
+.wallet .balance .cancel:hover{
+  border: 1px solid #008B7D;
+  color: #008B7D;
+}
+.wallet input{
+  width: 70%;
+  background-color: unset;
+  border: 1px solid #3D4047;
+  border-radius: 50px;
+  padding: 0px 1em;
+}
+.wallet input:focus{
+  border: 1px solid #008B7D;
+  box-shadow: none!important;
+}

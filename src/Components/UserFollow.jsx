@@ -1,62 +1,34 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { followtype } from '../Actions/UserAction'
+import { followtype, exploreuser } from '../Actions/UserAction'
 import { follow } from '../Actions/AuthAction'
+import { base64Img, defaultavt } from '../lib/Helper';
+import UserList from '../Containers/UserList';
 
-function UserFollow(props) {
-    const userlist = (props.followtype === "Followers") ? props.auth.followers : props.auth.following;
-    return <div className="right">
-        <div className="yourfollow">
-            <ul className="followtype">
-                <li className="item" onClick={() => { props.dispatch(followtype("Followers")) }}>
-                    <a className={(props.followtype === "Followers") ? "active" : ""}>Followers</a>
-                </li>
-                <li className="item" onClick={() => { props.dispatch(followtype("Following")) }}>
-                    <a className={(props.followtype === "Following") ? "active" : ""}>Following</a>
-                </li>
-            </ul>
-        </div>
-        <div className="clear-fix"></div>
-        <div className="followlist">
-            <ul className="userlist">
-                {userlist.map((user, index) => {
-                    var isFollow = (props.followtype === "Following") ? true : false;
-                    if (!isFollow)
-                        isFollow = user.isFollow;
-                    return <li className="item" key={index} >
-                        <img className="avt" src={user.avatarUrl} ></img>
-                        <div className="content">
-                            <div className="infor">
-                                <div className="name">{user.displayName}</div>
-                            </div>
-                            <div className="followcount">
-                                <i className="fa fa-user" ></i>
-                                {user.followers}
-                            </div>
-                            {(isFollow) ? (
-                                <div className="followed">
-                                    <i className="fa fa-check" ></i>
-                                    Following
-                                </div>
-                            ) : (
-                                    <div className="follow"
-                                        onClick={() => {
-                                            props.dispatch(follow(user))
-                                        }}
-                                    >
-                                        Follow
-                                    </div>
-                                )
-                            }
-
-                        </div>
+class UserFollow extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            hasMore: true,
+        }
+    }
+    render() {
+        return <div className="right">
+            <div className="yourfollow">
+                <ul className="followtype">
+                    <li className="item" onClick={() => { this.props.dispatch(followtype("Following")) }}>
+                        <a className={(this.props.followtype === "Following") ? "active" : ""}>Following</a>
                     </li>
-                })
-                }
+                    <li className="item" onClick={() => { this.props.dispatch(followtype("Followers")) }}>
+                        <a className={(this.props.followtype === "Followers") ? "active" : ""}>Followers</a>
+                    </li>
 
-            </ul>
+                </ul>
+            </div>
+            <div className="clear-fix"></div>
+            <UserList role="userfollow" />
         </div>
-    </div>
+    }
 }
 const mapStateToProps = state => {
     return {

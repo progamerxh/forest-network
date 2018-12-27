@@ -1,4 +1,6 @@
-export const LOG_IN = 'LOG_IN';
 export const LOG_OUT = 'LOG_OUT';
-export const EDIT_NAME = 'EDIT_NAME';
+export const LOG_IN = 'LOG_IN';
 export const FOLLOW = 'FOLLOW';
+export const UNFOLLOW = 'UNFOLLOW';
+export const UPDATE_ACCOUNT = 'UPDATE_ACCOUNT';
+export const UPDATE_SEQUENCE = 'UPDATE_SEQUENCE';

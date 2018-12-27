@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import './Stylesheets/index.css';
+import App from './Containers/App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import thunk from 'redux-thunk';
@@ -11,12 +11,12 @@ import { Provider } from 'react-redux';
 import SignIn from './Components/SignIn';
 import requireAuth from './Components/requireAuth';
 
-const reduxMiddlewares = [thunk];
 
 const store = createStore(
     rootReducer,
-    applyMiddleware.apply(undefined, reduxMiddlewares)
+    applyMiddleware(thunk)
 );
+
 ReactDOM.render(
     <Provider store={store}>
         <BrowserRouter>

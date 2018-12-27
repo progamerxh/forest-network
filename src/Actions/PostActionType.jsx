@@ -1,3 +1,6 @@
+export const POST_LOADED = 'POST_LOADED';
+export const POST_REFRESH = 'POST_REFRESH';
 export const POST_SUBMITED = 'POST_SUBMITED';
 export const POST_INTERACT = 'POST_INTERACT';
 export const POST_SHOWCOMMENT = 'POST_SHOWCOMMENT';
+export const POST_SHOWREACT = 'POST_SHOWREACT';

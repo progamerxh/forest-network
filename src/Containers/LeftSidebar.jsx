@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Search from '../Components/Search';
-import UserList from '../Components/UserList';
-export default function HomeSidebar(props) {
+import UserList from './UserList';
+
+export default function LeftSideBar(props) {
     return <div className="homesidebar">
-        <Search />
+        <Search role="mini"/>
         <div className="clear-fix"></div>
         <UserList />
     </div>
